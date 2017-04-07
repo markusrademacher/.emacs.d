@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: entity
+# key: ent
+# --
+entity ${1:entity_name} is
+  generic (
+    
+    );
+  port (
+    clk : in std_logic;
+    reset : in std_logic;
+    );
+end $1;

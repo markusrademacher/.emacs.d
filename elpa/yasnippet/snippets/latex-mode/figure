@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: figure
+# key: fig
+# --
+\begin{figure}[ht]
+  \centering
+  \includegraphics[$1]{${2:path}.pdf}
+  \caption{\label{$2}
+  $3}
+\end{figure}

@@ -1,0 +1,8 @@
+
+
+function ${1:functionName}(${2: arg : argDataType}) return ${3:ReturnValueType} is
+  -- variable decleration
+begin
+  -- behaviour
+  return ${4:ReturnValue}
+end function;    

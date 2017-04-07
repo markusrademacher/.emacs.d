@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: process
+# key: proc
+# --
+process(clk)
+begin
+  if(rising_edge(clk)) then
+    if(reset = '1') then
+      -- reset values
+    else
+      -- do stuff
+    end if;
+  end if;
+end process;
+     

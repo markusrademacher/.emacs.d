@@ -1,0 +1,52 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns; sns.set(style="white", color_codes=True)
+import os, fnmatch,csv
+
+#DataList=[]
+'''
+for root, dirs, files in os.walk(os.getcwd()):
+    for file in files:
+        if fnmatch.fnmatch(file,"distribution.dat"): 
+            print(os.path.join(root, file))'''
+
+'''with open('distribution.dat', 'rt') as f:
+  reader = csv.reader(f, delimiter='\t', skipinitialspace=True)
+
+  lineData = list()
+
+  cols = next(reader)
+  print(cols)
+
+  for col in cols:
+    # Create a list in lineData for each column of data.
+    lineData.append(list())
+
+
+  for line in reader:
+    for i in range(0, len(lineData)):
+      # Copy the data from the line into the correct columns.
+      lineData[i].append(line[i])
+
+  data = dict()
+  data[initialDistr]=lineData[0]
+  data[initialDistr_v]=lineData[1]
+  data[EndDistr]=lineData[2]
+  data[EndDistr_v]=lineData[3]
+
+  for i in range(0, len(cols)):
+    # Create each key in the dict with the data in its column.
+    data[cols[i]] = lineData[i]
+
+print(np.asarray(data['initialDistr']))'''
+data = np.loadtxt('distribution.dat',delimiter='\t')
+#print(data[:,0])
+x = pd.Series(data[:,0], name="$x$")
+v = pd.Series(data[:,1], name="$v$")
+
+sns.jointplot(x,v,kind="kde")
+
+#tips = sns.load_dataset("tips")
+#g = sns.jointplot(x="total_bill", y="tip", data=tips)'''
+

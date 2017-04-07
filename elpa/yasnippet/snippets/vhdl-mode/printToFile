@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: printToFile
+# key: printToFile
+# --
+variable textline : line;
+file text_var : text;
+
+file_open(text_var,"${4:filename.txt}",append_mode);  --open the file for writing.
+
+write(textline, ${1:variabletype}'image(${2:variable}));
+write(textline, String'("${3:SomeString}"));
+
+writeline(text_var, textline);
+
+file_close(text_var);

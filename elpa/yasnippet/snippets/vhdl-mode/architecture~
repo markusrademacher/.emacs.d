@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: architecture
+# key: arch
+# --
+architecture ${1:architecture_name} of ${2:entity_name} is
+    -- declarations
+begin
+    -- behaviour
+end $1;

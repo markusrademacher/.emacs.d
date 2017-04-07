@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: print
+# key: print
+# --
+variable textline : line;
+
+write(textline, ${1:variabletype}'image(${2:variable}));
+write(textline, String'("${3:SomeString}"));
+
+writeline(output, textline);

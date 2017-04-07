@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: table
+# key: table
+# --
+\begin{table}
+  \center
+  \begin{tabular}{ ${1:|c|c|} }
+    \hline
+    ${2:header1} & ${3:header2} \\
+    \hline
+    $4 \\
+    \hline
+  \end{tabular}
+  \caption{\label{table1}
+
+  }
+\end{table}
