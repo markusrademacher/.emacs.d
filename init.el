@@ -11,7 +11,7 @@
  '(org-startup-truncated nil)
  '(package-selected-packages
    (quote
-    (ac-clang rtags python-docstring py-autopep8 org-babel-eval-in-repl org-ac org ob-ipython material-theme jedi-direx helm-swoop helm-fuzzier helm-company fuzzy flycheck-irony elpy ein darkroom company-jedi company-irony-c-headers company-irony company-c-headers cmake-ide clang-format cl-format better-defaults babel-repl auto-complete-clang auto-complete-c-headers auto-complete-auctex auto-compile atom-dark-theme aggressive-indent ac-math ac-helm ac-c-headers))))
+    (pyenv-mode ac-clang rtags python-docstring py-autopep8 org-babel-eval-in-repl org-ac org ob-ipython material-theme jedi-direx helm-swoop helm-fuzzier helm-company fuzzy flycheck-irony elpy ein darkroom company-jedi company-irony-c-headers company-irony company-c-headers cmake-ide clang-format cl-format better-defaults babel-repl auto-complete-clang auto-complete-c-headers auto-complete-auctex auto-compile atom-dark-theme aggressive-indent ac-math ac-helm ac-c-headers))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -121,12 +121,21 @@
 ;; PYTHON CONFIGURATION
 ;; --------------------------------------
 
+;;(setq elpy-modules nil)
 (elpy-enable)
 (elpy-use-ipython)
-;;fix formattingxs
+;;fix formattings
 (setq ansi-color-for-comint-mode t)
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "--simple-prompt -i")
+
+;;the following is maybe useful at some point in time, but for now just start your conda virtaula environment before starting emacs to use it in your python IDE
+;;automatically activate python3 env, taken from http://emacs.stackexchange.com/questions/18059/how-to-activate-python-virtual-environment-in-init-file
+;;(require 'pyvenv)
+;;(pyvenv-activate "python3")
+;;choose between conda environments with M-x pyvenv-workon, taken from http://emacs.stackexchange.com/questions/20092/using-conda-environments-in-emacs
+;;(setenv "WORKON_HOME" "/Users/markusrademacher/anaconda3/envs")
+;;(pyvenv-mode 1)
 
 ;; use flycheck not flymake with elpy
 (when (require 'flycheck nil t)
@@ -136,3 +145,17 @@
 ;; enable autopep8 formatting on save
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+
+;; warnings-fix for elpy, taken from https://github.com/jorgenschaefer/elpy/issues/887
+(setq python-shell-completion-native-enable nil)
+
+;;helps to get rid of all the warnings when running python, taken from http://emacs.stackexchange.com/questions/30082/your-python-shell-interpreter-doesn-t-seem-to-support-readline
+(with-eval-after-load 'python
+  (defun python-shell-completion-native-try ()
+    "Return non-nil if can trigger native completion."
+    (let ((python-shell-completion-native-enable t)
+          (python-shell-completion-native-output-timeout
+           python-shell-completion-native-try-output-timeout))
+      (python-shell-completion-native-get-completions
+       (get-buffer-process (current-buffer))
+       nil "_"))))

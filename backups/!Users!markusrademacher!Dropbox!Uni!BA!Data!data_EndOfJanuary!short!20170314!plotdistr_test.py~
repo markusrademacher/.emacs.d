@@ -49,9 +49,9 @@ with PdfPages('sine_test.pdf') as pdf_pages:
         data = np.loadtxt('oscillatorimprovedEuler.dat',delimiter='\t')
         #print(data[:,0])
         xint = pd.Series(data[:,0], name="$x$")
-        vint = pd.Series(data[:,1], name="$v$")
+        vint = pd.Series(np.diff(data[:,0]/0.01)/np.sqrt(2/10), name="$v$")
         xend = pd.Series(data[:,0], name="$x$")
-        vend = pd.Series(data[:,1], name="$v$")
+        vend = pd.Series(data[:,1]/np.sqrt(2/10), name="$v$")
 
         #ZArray = Z
         #ZVArray = _np.diff(ZArray)*(self.SampleFreq/FractionOfSampleFreq)
@@ -67,19 +67,19 @@ with PdfPages('sine_test.pdf') as pdf_pages:
             _plotlimit=MaxVint/(2*np.pi*freq)*1.1
         
         JP1 = sns.jointplot(xint,vint,stat_func=None,xlim=[-_plotlimit,_plotlimit],ylim=[-_plotlimit,_plotlimit])
-        JP1.ax_joint.text(np.mean(data[:,0]),MaxVint/(2*np.pi*freq)*1.2,
+        '''JP1.ax_joint.text(np.mean(data[:,0]),MaxVint/(2*np.pi*freq)*1.2,
                           r"$\sigma_x=$ %.2Em, $\sigma_v=$ %.2Em"%(VarXint,VarVint),
                           horizontalalignment='center')
         #JP1.ax_joint.text(_np.mean(ZArray),MaxZV/(2*_np.pi*zf)*1.6,
         #                  "filepath=%s"%(self.filepath),
-        #                  horizontalalignment='center')
+        #                  horizontalalignment='center')'''
         
         #JG1 = sns.jointplot(xint, vint, kind='kde',xlim={-1.5e-9,1.5e-9},ylim={-0.015,0.015}) #,stat_func=None
         #JG1 = sns.jointplot(xint, vint, kind="kde", color="m")
         #JG1.plot_joint(plt.scatter, c="w", s=10, linewidth=0.5, marker="+")
         #JG1.ax_joint.collections[0].set_alpha(0)
         #JG1.set_axis_labels("$X$", "$Y$");
-        JP1.ax_joint.text(0,0.025,
+        """JP1.ax_joint.text(0,0.025,
                           'Distribution at the beginning of \n %.2fµs cooling cycle' %(ROI[i-1]/(12.5)),
                           horizontalalignment='center')
         JP1.ax_joint.text(-2.25e-9,0.035,
@@ -88,11 +88,11 @@ with PdfPages('sine_test.pdf') as pdf_pages:
                           fontsize=20)
         JP1.ax_joint.text(-2.25e-9 ,0.032,
                           'cooling factor = 5.17631, Q=47, ω=2π*292532Hz',
-                          horizontalalignment='center')
-        JP2 = sns.jointplot(xend, vend, kind='kde',xlim={-0.75e-9,0.75e-9},ylim={-0.002,0.002})
-        JP2.ax_joint.text(0,0.0033,
+                          horizontalalignment='center')"""
+        JP2 = sns.jointplot(xend, vend,stat_func=None,xlim=[-_plotlimit,_plotlimit],ylim=[-_plotlimit,_plotlimit])
+        '''JP2.ax_joint.text(0,0.0033, 
                          'Distribution at the end of \n %.2fµs cooling cycle' %(ROI[i-1]/(12.5)),
-                          horizontalalignment='center')
+                          horizontalalignment='center')'''
        
         #subplots migration
         f = plt.figure()
