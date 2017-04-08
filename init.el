@@ -105,7 +105,6 @@
 
 (global-set-key "`" 'company-complete-common)
 
-
 ;; Standard Jedi.el setting
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
@@ -143,8 +142,8 @@
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 ;; enable autopep8 formatting on save
-(require 'py-autopep8)
-(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+;;(require 'py-autopep8)
+;;(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
 ;; warnings-fix for elpy, taken from https://github.com/jorgenschaefer/elpy/issues/887
 (setq python-shell-completion-native-enable nil)

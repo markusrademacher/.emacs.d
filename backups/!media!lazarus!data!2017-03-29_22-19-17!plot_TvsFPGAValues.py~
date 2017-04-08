@@ -1,0 +1,49 @@
+import DataHandling
+import matplotlib.pyplot as plt
+import numpy as np
+
+RunNos = range(1,18)
+data = DataHandling.MultiLoadData(4, RunNos, [0])
+
+dataRef = DataHandling.LoadData("CH4_RUN00000001_REPEAT0000.raw")
+
+FPGAmulti = [0,5,9,14,18,23,27,32,36,41,45,50,54,59,63,68,72]
+
+'''for i, RunNo in enumerate(RunNos):
+    data[i].P = PData.GetPressure(RunNo)
+'''
+Zf = 99800
+Xf = 147e3
+Yf = 200750
+
+dataRef.getFit(10e3, 2 , Zf)
+
+for dataset in data:
+    dataset.getFit(10e3, 2 , Zf, ShowFig=False)
+    dataset.T = DataHandling.calcTemp(dataRef, dataset)
+    print(dataset.T)
+
+plt.close('all')
+
+TList = []
+TErrList = []
+for dataset in data:    
+    '''PList.append(dataset.P)'''
+    TList.append(dataset.T.n)
+    TErrList.append(dataset.T.std_dev)
+print(len(TList))
+print(len(FPGAmulti))
+print(len(data))
+print(data)
+fig, axs = plt.subplots(nrows=1, ncols=1)
+    
+axs.errorbar(FPGAmulti, TList, yerr=TErrList, fmt='o')
+'''axs.loglog()
+axs.set_ylim([0, 300])
+axs.set_xlim([min(PList)-0.05*min(PList), max(PList)+0.05*max(PList)])'''
+axs.set_xlabel("FPGA Values")
+axs.set_ylabel("Temp (K)")
+
+plt.show()
+
+    
