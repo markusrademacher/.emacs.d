@@ -142,8 +142,8 @@
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 ;; enable autopep8 formatting on save
-;;(require 'py-autopep8)
-;;(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+(require 'py-autopep8)
+c(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
 ;; warnings-fix for elpy, taken from https://github.com/jorgenschaefer/elpy/issues/887
 (setq python-shell-completion-native-enable nil)
@@ -177,3 +177,4 @@
 (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
 ;; From helm-swoop to helm-multi-swoop-all
 (define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
+

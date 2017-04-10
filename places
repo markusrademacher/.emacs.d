@@ -1,0 +1,9 @@
+;;; -*- coding: utf-8 -*-
+(("/media/lazarus/data/2017-03-29_22-19-17/plot_OmegavsFPGAValues.py" . 1284)
+ ("/home/markus/pythonpackages/datahandling/datahandling/datahandling/datahandling.py" . 29510)
+ ("/media/lazarus/data/2017-03-29_22-19-17/plot_TvsFPGAValues.py" . 916)
+ ("/home/markus/.emacs.d/init.el" . 5755)
+ ("/home/markus/.emacs.d/elpa/cl-lib-highlight-20140127.1312/cl-lib-highlight-autoloads.el" . 551)
+ ("/home/markus/.emacs.d/elpa/yasnippet-20170408.1607/yasnippet-autoloads.el" . 1617)
+ ("/media/lazarus/data/2017-03-29_22-19-17/"
+  (dired-filename . "/media/lazarus/data/2017-03-29_22-19-17/arrayvalues_just_temperature.npy")))
