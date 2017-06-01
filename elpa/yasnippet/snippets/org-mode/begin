@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: begin
+# key: begin
+# --
+#+NAME:	${1:labelType}:${2:Label}
+\begin{${3:function}} 
+$0
+\end{$3}

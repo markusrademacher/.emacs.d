@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: table
+# key: table
+# --
+
+#+CAPTION:	${1:describe}
+#+NAME:		tab:${2:tabLabel}
+#+ATTR_LATEX:	:align l|l|l
+|${3:starthere}  | |
+|----------------+-|
+|		 | |

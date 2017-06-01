@@ -1,0 +1,32 @@
+# -*- mode: snippet -*-
+# name: researchproject
+# key: rproject_
+# --
+
+#+AUTHOR: Markus Rademacher 
+#+TITLE: ${1:Project}
+#+OPTIONS: ^:{}
+#+BIBLIOGRAPHY: research plain option:-d
+#+STARTUP: overview
+#+STARTUP: fold
+#+STARTUP: align
+#+OPTIONS: toc:nil todo:nil 
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [a4paper,twoside]
+#+LATEX_HEADER: \usepackage[top=1in, bottom=1.25in, left=1.25in, right=1.25in]{geometry}
+#+LATEX_HEADER: \usepackage{graphicx}
+#+LATEX_HEADER: \usepackage{amsmath}
+#+LATEX_HEADER: \usepackage{natbib}
+#+LATEX_HEADER: \usepackage[backend=biber]{biblatex}
+#+LATEX_HEADER: \bibliography{research}
+#+LATEX_HEADER: \usepackage{amsmath}
+#+LATEX_HEADER: \usepackage{color}
+
+
+#+CONSTANTS: pi=3.14159265358979323846
+
+* Motivation
+* Literature Review
+* Experimental Methods
+* Results
+* Data

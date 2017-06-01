@@ -1,7 +1,10 @@
 # -*- mode: snippet -*-
 # name: figure
-# key: fig_
+# key: figure
 # --
-#+CAPTION: ${1:caption}
-#+ATTR_LaTeX: ${2:scale=0.75}
-#+LABEL: fig:${3:label}
+
+#+CAPTION:	${1:caption}
+#+NAME:		fig:${2:figLabel}
+#+ATTR_LATEX:	:width 0.8\linewidth	:float	H
+
+
