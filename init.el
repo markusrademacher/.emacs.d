@@ -11,7 +11,7 @@
  '(org-startup-truncated nil)
  '(package-selected-packages
    (quote
-    (pyenv-mode ac-clang rtags python-docstring py-autopep8 org-babel-eval-in-repl org-ac org ob-ipython material-theme jedi-direx helm-swoop helm-fuzzier helm-company fuzzy flycheck-irony elpy ein darkroom company-jedi company-irony-c-headers company-irony company-c-headers cmake-ide clang-format cl-format better-defaults babel-repl auto-complete-clang auto-complete-c-headers auto-complete-auctex auto-compile atom-dark-theme aggressive-indent ac-math ac-helm ac-c-headers))))
+    (## pyenv-mode ac-clang rtags python-docstring py-autopep8 org-babel-eval-in-repl org-ac org ob-ipython material-theme jedi-direx helm-swoop helm-fuzzier helm-company fuzzy flycheck-irony elpy ein darkroom company-jedi company-irony-c-headers company-irony company-c-headers cmake-ide clang-format cl-format better-defaults babel-repl auto-complete-clang auto-complete-c-headers auto-complete-auctex auto-compile atom-dark-theme aggressive-indent ac-math ac-helm ac-c-headers))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -177,3 +177,6 @@
 (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
 ;; From helm-swoop to helm-multi-swoop-all
 (define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
+
+;;in case elpy times out when refactoring code:
+;;(setq elpy-rpc-timeout nil)
