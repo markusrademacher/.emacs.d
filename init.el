@@ -179,4 +179,4 @@
 (define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
 
 ;;in case elpy times out when refactoring code:
-;;(setq elpy-rpc-timeout nil)
+(setq elpy-rpc-timeout nil)
