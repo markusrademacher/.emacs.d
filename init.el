@@ -30,7 +30,7 @@
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize) ;; You might already have this line
+;;(package-initialize) ;; You might already have this line
 
 ;; INSTALL PACKAGES
 ;; --------------------------------------
@@ -179,4 +179,4 @@
 (define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
 
 ;;in case elpy times out when refactoring code:
-(setq elpy-rpc-timeout nil)
+(setq elpy-rpc-timeout 10)
